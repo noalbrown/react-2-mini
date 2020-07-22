@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ColorChanger from './ColorChanger';
 
 export default class TextContainer extends Component {
   constructor() {
@@ -6,6 +7,7 @@ export default class TextContainer extends Component {
     this.state = {
       text: '',
     };
+    this.updateText = this.updateText.bind(this);
   }
 
   updateText(e) {
@@ -17,14 +19,14 @@ export default class TextContainer extends Component {
   render() {
     return (
       <div className="textContainer">
-        <textarea
-          // style={  }
+        <textarea />
+          style = {color: this.props.fontColor, fontFamily: this.props.fontFamily, fontSize: this.props.fontSize
+        }
           onChange={this.updateText}
           value={this.state.text}
           placeholder="Start typing your thoughts here!"
           cols="90"
           rows="30"
-        />
       </div>
     );
   }
